@@ -13,8 +13,8 @@ const Edit = () => {
 
   const updateData = (e) => {
     e.preventDefault();
-    const Datas = { name, email, phone };
-    axios.put(`${postApi}/${id}`, Datas).then(navigate("/"));
+    const Datas = { name: name, email: email, phone: phone };
+    axios.put(`${postApi}/${id}`, Datas).then(() => navigate("/"));
   };
 
   const getData = useCallback(() => {

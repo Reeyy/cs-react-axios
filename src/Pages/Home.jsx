@@ -10,19 +10,19 @@ const Home = () => {
   const fetchData = () => {
     axios.get(`${apiUrl}${process.env.REACT_APP_API}`).then((res) => {
       setUsers(res.data.reverse());
+      console.log(res);
     });
   };
 
   useEffect(() => {
     fetchData();
     setLoading(false);
-  }, [users]);
+  }, []);
 
   const deleteData = (id) => {
-    console.log(id);
-    axios
-      .delete(`${apiUrl}${process.env.REACT_APP_API}/${id}`)
-      .then(fetchData());
+    axios.delete(`${apiUrl}${process.env.REACT_APP_API}/${id}`).then(() => {
+      fetchData();
+    });
   };
 
   return (

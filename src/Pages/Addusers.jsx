@@ -18,7 +18,9 @@ const Addusers = () => {
   };
 
   const submitdata = () => {
-    axios.post(postApi, data).then(navigate("/"));
+    axios.post(postApi, data).then(() => {
+      navigate("/");
+    });
   };
 
   const Submit = (e) => {
